@@ -9,6 +9,7 @@ public class Contract {
 	public Company company;
 	public User user;
 	public String login;
+	public String email;
 	public String comment;
 	public LocalDateTime startDate;
 	public LocalDateTime endDate;
