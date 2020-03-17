@@ -1,9 +1,16 @@
 package remindme.model.user;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import remindme.model.Contract;
 
 @SuppressWarnings("serial")
 @Entity
@@ -16,6 +23,9 @@ public class User implements Serializable {
 	public String phoneNumber;
 	public String email;
 	public String password;
+	
+	@OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Contract> contracts = new ArrayList<>();
 	
 	private User() {
 		

@@ -4,18 +4,18 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import remindme.model.user.User;
 
 
-public class DAO< T extends Serializable >{
+public abstract class DAO< T extends Serializable >{
 	private Class< T > obj;
 	
-	@Autowired
+	@PersistenceContext
     private EntityManager entityManager;
 	
 	public void setObj( final Class< T > objToSet ){
@@ -29,8 +29,7 @@ public class DAO< T extends Serializable >{
 	
 	@SuppressWarnings("unchecked")
 	public List< T > findAll(){
-		return getCurrentSession()
-				.createQuery( "from " + obj.getName() ).list();
+		return getCurrentSession().createQuery("from " + obj.getName()).getResultList();
 	}
 	
 	public void save( final T entity ){

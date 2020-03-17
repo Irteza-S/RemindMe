@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableAutoConfiguration
 @SpringBootApplication
-@ComponentScan(basePackages = {"remindme.services", "remindme.app", "remindme.db"})
+@ComponentScan(basePackages = {"remindme.services", "remindme.db", "remindme.api"})
 @EntityScan(basePackages = {"remindme.model.user", "remindme.model"})
 public class RemindMeApplication {
 	

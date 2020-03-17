@@ -19,5 +19,6 @@ public class DatabaseFillerOnStartup implements ApplicationListener<ContextRefre
     @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
 		userDAO.save(new User("Irteza", "SHeikh"));
+		userDAO.save(new User("SDSD", "OKKQSD"));
     }
 }
